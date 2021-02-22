@@ -1,0 +1,80 @@
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+
+const useStyles = makeStyles({
+  media: {
+    height: 200,
+  },
+  root: {
+    width: 400,
+  },
+
+  container: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
+});
+
+let availableCourse = [
+  {
+    imagepath:
+      "https://quransheikhcom.b-cdn.net/wp-content/uploads/2019/12/Noorani-Qaida-Online-Course.jpg",
+    title: "Qaida",
+    description: "For Beginners",
+  },
+  {
+    imagepath:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdFOFrMyjN7kJPucerUAO3hUMEJeJr1fwYig&usqp=CAU",
+    title: "Nazra",
+    description: "For people who face some problems reciting Quran",
+  },
+  {
+    imagepath:
+      "data:image/jpeg;base64,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",
+    title: "Quran Hifz",
+    description: "Quran memorization",
+  },
+];
+
+function CourseCard() {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.container}>
+      {availableCourse.map((item, index) => {
+        return (
+          <Card className={classes.root}>
+            <CardActionArea>
+              <CardMedia
+                className={classes.media}
+                image={item.imagepath}
+                title="Contemplative Reptile"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  {item.title}
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  {item.description}
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
+              <Button variant="contained" size="small" color="primary">
+                Learn
+              </Button>
+            </CardActions>
+          </Card>
+        );
+      })}
+    </div>
+  );
+}
+export default CourseCard;
